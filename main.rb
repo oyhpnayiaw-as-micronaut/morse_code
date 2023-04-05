@@ -40,3 +40,13 @@ def decode_char(char)
   morse_code_hash[char]
 end
 
+def decode_word(word)
+  word.split.map { |char| decode_char(char) }.join
+end
+
+def decode(sentence)
+  sentence.split('   ').map { |word| decode_word(word) }.join(' ')
+end
+
+puts decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+
